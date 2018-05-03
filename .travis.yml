@@ -9,5 +9,6 @@ addons:
       - g++-4.8
 node_js:
   - "5.1"
+  - "10"
 before_script:
   - npm install -g mocha

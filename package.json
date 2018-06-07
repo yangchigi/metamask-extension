@@ -293,7 +293,7 @@
     "source-map": "^0.7.2",
     "style-loader": "^0.21.0",
     "stylelint-config-standard": "^18.2.0",
-    "tape": "^4.5.1",
+    "tape": "4.9.0",
     "testem": "^2.0.0",
     "through2": "^2.0.3",
     "vinyl-buffer": "^1.0.1",

@@ -214,7 +214,7 @@ function reduceMetamask (state, action) {
         },
       })
 
-    case actions.UPDATE_SEND_TOKEN_BALANCE:
+    case actions.UPDATE_sendTOKEN_BALANCE:
       return extend(metamaskState, {
         send: {
           ...metamaskState.send,
@@ -222,7 +222,7 @@ function reduceMetamask (state, action) {
         },
       })
 
-    case actions.UPDATE_SEND_FROM:
+    case actions.UPDATE_sendFROM:
       return extend(metamaskState, {
         send: {
           ...metamaskState.send,
@@ -230,7 +230,7 @@ function reduceMetamask (state, action) {
         },
       })
 
-    case actions.UPDATE_SEND_TO:
+    case actions.UPDATE_sendTO:
       return extend(metamaskState, {
         send: {
           ...metamaskState.send,
@@ -239,7 +239,7 @@ function reduceMetamask (state, action) {
         },
       })
 
-    case actions.UPDATE_SEND_AMOUNT:
+    case actions.UPDATE_sendAMOUNT:
       return extend(metamaskState, {
         send: {
           ...metamaskState.send,
@@ -247,7 +247,7 @@ function reduceMetamask (state, action) {
         },
       })
 
-    case actions.UPDATE_SEND_MEMO:
+    case actions.UPDATE_sendMEMO:
       return extend(metamaskState, {
         send: {
           ...metamaskState.send,

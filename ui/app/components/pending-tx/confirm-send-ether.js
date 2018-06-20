@@ -19,15 +19,15 @@ const {
 const {
   calcGasTotal,
   isBalanceSufficient,
-} = require('../send_/send.utils')
-const GasFeeDisplay = require('../send/gas-fee-display-v2')
+} = require('../send/send.utils')
+const GasFeeDisplay = require('../send/gas-fee-display')
 const SenderToRecipient = require('../sender-to-recipient')
 const NetworkDisplay = require('../network-display')
 const currencyFormatter = require('currency-formatter')
 const currencies = require('currency-formatter/currencies')
 
-const { MIN_GAS_PRICE_HEX } = require('../send_/send.constants')
-const { SEND_ROUTE, DEFAULT_ROUTE } = require('../../routes')
+const { MIN_GAS_PRICE_HEX } = require('../send/send.constants')
+const { sendROUTE, DEFAULT_ROUTE } = require('../../routes')
 const {
   ENVIRONMENT_TYPE_POPUP,
   ENVIRONMENT_TYPE_NOTIFICATION,
@@ -299,7 +299,7 @@ ConfirmSendEther.prototype.editTransaction = function () {
   const { editTransaction, history } = this.props
   const txMeta = this.gatherTxMeta()
   editTransaction(txMeta)
-  history.push(SEND_ROUTE)
+  history.push(sendROUTE)
 }
 
 ConfirmSendEther.prototype.renderHeaderRow = function (isTxReprice) {

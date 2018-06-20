@@ -7,7 +7,7 @@ const { withRouter } = require('react-router-dom')
 const { compose } = require('recompose')
 const actions = require('../actions')
 const selectors = require('../selectors')
-const { SEND_ROUTE } = require('../routes')
+const { sendROUTE } = require('../routes')
 const { checksumAddress: toChecksumAddress } = require('../util')
 
 const BalanceComponent = require('./balance-component')
@@ -89,14 +89,14 @@ TxView.prototype.renderButtons = function () {
           style: {
             marginLeft: '0.8em',
           },
-          onClick: () => history.push(SEND_ROUTE),
+          onClick: () => history.push(sendROUTE),
         }, this.context.t('send')),
       ])
     )
     : (
       h('div.flex-row.flex-center.hero-balance-buttons', [
         h('button.btn-primary.hero-balance-button', {
-          onClick: () => history.push(SEND_ROUTE),
+          onClick: () => history.push(sendROUTE),
         }, this.context.t('send')),
       ])
     )

@@ -11,7 +11,7 @@ abiDecoder.addABI(tokenAbi)
 const actions = require('../../actions')
 const clone = require('clone')
 const Identicon = require('../identicon')
-const GasFeeDisplay = require('../send/gas-fee-display-v2.js')
+const GasFeeDisplay = require('../send/gas-fee-display')
 const NetworkDisplay = require('../network-display')
 const ethUtil = require('ethereumjs-util')
 const BN = ethUtil.BN
@@ -23,7 +23,7 @@ const {
 const {
   calcGasTotal,
   isBalanceSufficient,
-} = require('../send_/send.utils')
+} = require('../send/send.utils')
 const {
   calcTokenAmount,
 } = require('../../token-util')
@@ -31,14 +31,14 @@ const classnames = require('classnames')
 const currencyFormatter = require('currency-formatter')
 const currencies = require('currency-formatter/currencies')
 
-const { MIN_GAS_PRICE_HEX } = require('../send_/send.constants')
+const { MIN_GAS_PRICE_HEX } = require('../send/send.constants')
 
 const {
   getTokenExchangeRate,
   getSelectedAddress,
   getSelectedTokenContract,
 } = require('../../selectors')
-const { SEND_ROUTE, DEFAULT_ROUTE } = require('../../routes')
+const { sendROUTE, DEFAULT_ROUTE } = require('../../routes')
 
 import {
   updateSendErrors,
@@ -165,7 +165,7 @@ function ConfirmSendToken () {
 ConfirmSendToken.prototype.editTransaction = function (txMeta) {
   const { editTransaction, history } = this.props
   editTransaction(txMeta)
-  history.push(SEND_ROUTE)
+  history.push(sendROUTE)
 }
 
 ConfirmSendToken.prototype.updateComponentSendErrors = function (prevProps) {

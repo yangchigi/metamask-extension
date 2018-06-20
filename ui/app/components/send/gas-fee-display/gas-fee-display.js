@@ -2,7 +2,7 @@ const Component = require('react').Component
 const PropTypes = require('prop-types')
 const h = require('react-hyperscript')
 const inherits = require('util').inherits
-const CurrencyDisplay = require('./currency-display')
+const CurrencyDisplay = require('../currency-display')
 const connect = require('react-redux').connect
 
 GasFeeDisplay.contextTypes = {

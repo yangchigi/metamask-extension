@@ -245,7 +245,7 @@ function reduceApp (state, action) {
         transForward: true,
       })
 
-    case actions.SHOW_SEND_PAGE:
+    case actions.SHOW_sendPAGE:
       return extend(appState, {
         currentView: {
           name: 'sendTransaction',
@@ -255,7 +255,7 @@ function reduceApp (state, action) {
         warning: null,
       })
 
-    case actions.SHOW_SEND_TOKEN_PAGE:
+    case actions.SHOW_sendTOKEN_PAGE:
       return extend(appState, {
         currentView: {
           name: 'sendToken',

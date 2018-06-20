@@ -9,7 +9,7 @@ const ADD_TOKEN_ROUTE = '/add-token'
 const CONFIRM_ADD_TOKEN_ROUTE = '/confirm-add-token'
 const NEW_ACCOUNT_ROUTE = '/new-account'
 const IMPORT_ACCOUNT_ROUTE = '/new-account/import'
-const SEND_ROUTE = '/send'
+const sendROUTE = '/send'
 const CONFIRM_TRANSACTION_ROUTE = '/confirm-transaction'
 const SIGNATURE_REQUEST_ROUTE = '/confirm-transaction/signature-request'
 const NOTICE_ROUTE = '/notice'
@@ -35,7 +35,7 @@ module.exports = {
   CONFIRM_ADD_TOKEN_ROUTE,
   NEW_ACCOUNT_ROUTE,
   IMPORT_ACCOUNT_ROUTE,
-  SEND_ROUTE,
+  sendROUTE,
   CONFIRM_TRANSACTION_ROUTE,
   NOTICE_ROUTE,
   SIGNATURE_REQUEST_ROUTE,

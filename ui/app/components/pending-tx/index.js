@@ -16,8 +16,8 @@ const Loading = require('../loading-screen')
 
 const TX_TYPES = {
   DEPLOY_CONTRACT: 'deploy_contract',
-  sendETHER: 'sendether',
-  sendTOKEN: 'sendtoken',
+  SEND_ETHER: 'send_ether',
+  SEND_TOKEN: 'send_token',
 }
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(PendingTx)
@@ -95,7 +95,7 @@ PendingTx.prototype.setTokenData = async function () {
     const { symbol, decimals } = await getSymbolAndDecimals(txParams.to, existingTokens)
 
     this.setState({
-      transactionType: TX_TYPES.sendTOKEN,
+      transactionType: TX_TYPES.SEND_TOKEN,
       tokenAddress: txParams.to,
       tokenSymbol: symbol,
       tokenDecimals: decimals,
@@ -103,7 +103,7 @@ PendingTx.prototype.setTokenData = async function () {
     })
   } else {
     this.setState({
-      transactionType: TX_TYPES.sendETHER,
+      transactionType: TX_TYPES.SEND_ETHER,
       isFetching: false,
     })
   }
@@ -135,12 +135,12 @@ PendingTx.prototype.render = function () {
   }
 
   switch (transactionType) {
-    case TX_TYPES.sendETHER:
+    case TX_TYPES.SEND_ETHER:
       return h(ConfirmSendEther, {
         txData: this.gatherTxMeta(),
         sendTransaction,
       })
-    case TX_TYPES.sendTOKEN:
+    case TX_TYPES.SEND_TOKEN:
       return h(ConfirmSendToken, {
         txData: this.gatherTxMeta(),
         sendTransaction,

@@ -38,7 +38,7 @@ const {
   getSelectedAddress,
   getSelectedTokenContract,
 } = require('../../selectors')
-const { sendROUTE, DEFAULT_ROUTE } = require('../../routes')
+const { SEND_ROUTE, DEFAULT_ROUTE } = require('../../routes')
 
 import {
   updateSendErrors,
@@ -165,7 +165,7 @@ function ConfirmSendToken () {
 ConfirmSendToken.prototype.editTransaction = function (txMeta) {
   const { editTransaction, history } = this.props
   editTransaction(txMeta)
-  history.push(sendROUTE)
+  history.push(SEND_ROUTE)
 }
 
 ConfirmSendToken.prototype.updateComponentSendErrors = function (prevProps) {

@@ -23,7 +23,7 @@ describe('Send Duck', () => {
   const CLOSE_FROM_DROPDOWN = 'metamask/send/CLOSE_FROM_DROPDOWN'
   const OPEN_TO_DROPDOWN = 'metamask/send/OPEN_TO_DROPDOWN'
   const CLOSE_TO_DROPDOWN = 'metamask/send/CLOSE_TO_DROPDOWN'
-  const UPDATE_sendERRORS = 'metamask/send/UPDATE_sendERRORS'
+  const UPDATE_SEND_ERRORS = 'metamask/send/UPDATE_SEND_ERRORS'
 
   describe('SendReducer()', () => {
     it('should initialize state', () => {
@@ -84,7 +84,7 @@ describe('Send Duck', () => {
       )
     })
 
-    it('should extend send.errors with the value of a UPDATE_sendERRORS action', () => {
+    it('should extend send.errors with the value of a UPDATE_SEND_ERRORS action', () => {
       const modifiedMockState = Object.assign({}, mockState, {
         send: {
           errors: {
@@ -94,7 +94,7 @@ describe('Send Duck', () => {
       })
       assert.deepEqual(
         SendReducer(modifiedMockState, {
-          type: UPDATE_sendERRORS,
+          type: UPDATE_SEND_ERRORS,
           value: { someOtherError: true },
         }),
         Object.assign({}, modifiedMockState.send, {
@@ -138,7 +138,7 @@ describe('Send Duck', () => {
   describe('updateSendErrors', () => {
     assert.deepEqual(
       updateSendErrors('mockErrorObject'),
-      { type: UPDATE_sendERRORS, value: 'mockErrorObject' }
+      { type: UPDATE_SEND_ERRORS, value: 'mockErrorObject' }
     )
   })
 

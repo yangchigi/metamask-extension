@@ -27,7 +27,7 @@ const currencyFormatter = require('currency-formatter')
 const currencies = require('currency-formatter/currencies')
 
 const { MIN_GAS_PRICE_HEX } = require('../send/send.constants')
-const { sendROUTE, DEFAULT_ROUTE } = require('../../routes')
+const { SEND_ROUTE, DEFAULT_ROUTE } = require('../../routes')
 const {
   ENVIRONMENT_TYPE_POPUP,
   ENVIRONMENT_TYPE_NOTIFICATION,
@@ -299,7 +299,7 @@ ConfirmSendEther.prototype.editTransaction = function () {
   const { editTransaction, history } = this.props
   const txMeta = this.gatherTxMeta()
   editTransaction(txMeta)
-  history.push(sendROUTE)
+  history.push(SEND_ROUTE)
 }
 
 ConfirmSendEther.prototype.renderHeaderRow = function (isTxReprice) {

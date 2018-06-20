@@ -117,9 +117,9 @@ var actions = {
   setCurrentCurrency: setCurrentCurrency,
   setCurrentAccountTab,
   // account detail screen
-  SHOW_sendPAGE: 'SHOW_sendPAGE',
+  SHOW_SEND_PAGE: 'SHOW_SEND_PAGE',
   showSendPage: showSendPage,
-  SHOW_sendTOKEN_PAGE: 'SHOW_sendTOKEN_PAGE',
+  SHOW_SEND_TOKEN_PAGE: 'SHOW_SEND_TOKEN_PAGE',
   showSendTokenPage,
   ADD_TO_ADDRESS_BOOK: 'ADD_TO_ADDRESS_BOOK',
   addToAddressBook: addToAddressBook,
@@ -164,12 +164,12 @@ var actions = {
   UPDATE_GAS_LIMIT: 'UPDATE_GAS_LIMIT',
   UPDATE_GAS_PRICE: 'UPDATE_GAS_PRICE',
   UPDATE_GAS_TOTAL: 'UPDATE_GAS_TOTAL',
-  UPDATE_sendFROM: 'UPDATE_sendFROM',
-  UPDATE_sendTOKEN_BALANCE: 'UPDATE_sendTOKEN_BALANCE',
-  UPDATE_sendTO: 'UPDATE_sendTO',
-  UPDATE_sendAMOUNT: 'UPDATE_sendAMOUNT',
-  UPDATE_sendMEMO: 'UPDATE_sendMEMO',
-  UPDATE_sendERRORS: 'UPDATE_sendERRORS',
+  UPDATE_SEND_FROM: 'UPDATE_SEND_FROM',
+  UPDATE_SEND_TOKEN_BALANCE: 'UPDATE_SEND_TOKEN_BALANCE',
+  UPDATE_SEND_TO: 'UPDATE_SEND_TO',
+  UPDATE_SEND_AMOUNT: 'UPDATE_SEND_AMOUNT',
+  UPDATE_SEND_MEMO: 'UPDATE_SEND_MEMO',
+  UPDATE_SEND_ERRORS: 'UPDATE_SEND_ERRORS',
   UPDATE_MAX_MODE: 'UPDATE_MAX_MODE',
   UPDATE_SEND: 'UPDATE_SEND',
   CLEAR_SEND: 'CLEAR_SEND',
@@ -795,42 +795,42 @@ function updateSendTokenBalance ({
 
 function updateSendErrors (errorObject) {
   return {
-    type: actions.UPDATE_sendERRORS,
+    type: actions.UPDATE_SEND_ERRORS,
     value: errorObject,
   }
 }
 
 function setSendTokenBalance (tokenBalance) {
   return {
-    type: actions.UPDATE_sendTOKEN_BALANCE,
+    type: actions.UPDATE_SEND_TOKEN_BALANCE,
     value: tokenBalance,
   }
 }
 
 function updateSendFrom (from) {
   return {
-    type: actions.UPDATE_sendFROM,
+    type: actions.UPDATE_SEND_FROM,
     value: from,
   }
 }
 
 function updateSendTo (to, nickname = '') {
   return {
-    type: actions.UPDATE_sendTO,
+    type: actions.UPDATE_SEND_TO,
     value: { to, nickname },
   }
 }
 
 function updateSendAmount (amount) {
   return {
-    type: actions.UPDATE_sendAMOUNT,
+    type: actions.UPDATE_SEND_AMOUNT,
     value: amount,
   }
 }
 
 function updateSendMemo (memo) {
   return {
-    type: actions.UPDATE_sendMEMO,
+    type: actions.UPDATE_SEND_MEMO,
     value: memo,
   }
 }
@@ -1682,13 +1682,13 @@ function setAccountLabel (account, label) {
 
 function showSendPage () {
   return {
-    type: actions.SHOW_sendPAGE,
+    type: actions.SHOW_SEND_PAGE,
   }
 }
 
 function showSendTokenPage () {
   return {
-    type: actions.SHOW_sendTOKEN_PAGE,
+    type: actions.SHOW_SEND_TOKEN_PAGE,
   }
 }
 

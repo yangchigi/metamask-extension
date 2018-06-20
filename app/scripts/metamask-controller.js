@@ -169,7 +169,9 @@ module.exports = class MetamaskController extends EventEmitter {
     })
     this.networkController.on('networkDidChange', () => {
       this.balancesController.updateAllBalances()
+      this.preferencesController.exploreNewTokens(this.networkController.getProviderConfig())
     })
+    this.preferencesController.exploreNewTokens(this.networkController.getProviderConfig())
     this.balancesController.updateAllBalances()
 
     // notices

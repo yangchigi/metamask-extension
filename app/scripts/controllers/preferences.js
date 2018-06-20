@@ -1,6 +1,13 @@
 const ObservableStore = require('obs-store')
 const normalizeAddress = require('eth-sig-util').normalize
 const extend = require('xtend')
+const {
+  ROPSTEN,
+  RINKEBY,
+  KOVAN,
+  MAINNET,
+  LOCALHOST,
+} = require('./network/enums')
 
 
 class PreferencesController {
@@ -212,6 +219,49 @@ class PreferencesController {
     this.store.updateState({ tokens })
 
     return Promise.resolve(tokens)
+  }
+
+  /**
+   * For each token in eth-contract=metada, find check selectedAddress balance.
+   *
+   */
+  async exploreNewTokens (providerConfig) {
+    console.log('explore tokens', providerConfig.type)
+    if (providerConfig.type !== MAINNET) {
+      return
+    }
+    const contracts = require('eth-contract-metadata')
+    var tokens = this.store.getState().tokens
+    let detectedTokenAddress, token
+    for (const address in contracts) {
+        const contract = contracts[address]
+        if (contract.erc20 && !(address in tokens)) {
+          detectedTokenAddress = await this.checkContractAccountBalance(address) 
+          if (detectedTokenAddress) {
+            token = contracts[detectedTokenAddress]
+            this.addToken(detectedTokenAddress, token['symbol'], token['decimals'])
+          }
+        }
+        // etherscan restriction, 5 request/second, lazy scan
+        setTimeout(() => {}, 200)
+    }
+  }
+
+  /**
+   * Find if selectedAddress has tokens with contract in contractAddress.
+   *
+   * @param {string} contractAddress Hex address of the token contract to explore.
+   * @returns {string} Contract address to be added to tokens.
+   *
+   */
+  async checkContractAccountBalance (contractAddress) {
+    const address = this.store.getState().selectedAddress
+    const response = await fetch(`https://api.etherscan.io/api?module=account&action=tokenbalance&contractaddress=${contractAddress}&address=${address}&tag=latest&apikey=NCKS6GTY41KPHWRJB62ES1MDNRBIT174PV`)
+    const parsedResponse = await response.json()
+    if (parsedResponse.result !== '0') {
+      return contractAddress
+    }
+    return null
   }
 
   /**

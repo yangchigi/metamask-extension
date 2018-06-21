@@ -20,7 +20,7 @@ const {
   calcGasTotal,
   isBalanceSufficient,
 } = require('../send/send.utils')
-const GasFeeDisplay = require('../send/gas-fee-display')
+const GasFeeDisplay = require('../send/gas-fee-display').default
 const SenderToRecipient = require('../sender-to-recipient')
 const NetworkDisplay = require('../network-display')
 const currencyFormatter = require('currency-formatter')

@@ -11,7 +11,7 @@ abiDecoder.addABI(tokenAbi)
 const actions = require('../../actions')
 const clone = require('clone')
 const Identicon = require('../identicon')
-const GasFeeDisplay = require('../send/gas-fee-display')
+const GasFeeDisplay = require('../send/gas-fee-display').default
 const NetworkDisplay = require('../network-display')
 const ethUtil = require('ethereumjs-util')
 const BN = ethUtil.BN

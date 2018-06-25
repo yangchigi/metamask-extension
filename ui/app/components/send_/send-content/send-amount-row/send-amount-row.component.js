@@ -38,6 +38,10 @@ export default class SendAmountRow extends Component {
       updateSendAmountError,
     } = this.props
 
+    if (selectedToken) {
+      window.logs = window.logs && [...window.logs, `validateAmount:${amount}`] || [`validateAmount:${amount}`]
+    }
+
     updateSendAmountError({
       amount,
       amountConversionRate,
@@ -87,6 +91,9 @@ export default class SendAmountRow extends Component {
           conversionRate={amountConversionRate}
           convertedCurrency={convertedCurrency}
           onBlur={newAmount => {
+            if (selectedToken) {
+              window.logs = window.logs && [...window.logs, `render newAmount:${newAmount}`] || [`render newAmount:${newAmount}`]
+            }
             this.updateGas(newAmount)
             this.updateAmount(newAmount)
           }}
